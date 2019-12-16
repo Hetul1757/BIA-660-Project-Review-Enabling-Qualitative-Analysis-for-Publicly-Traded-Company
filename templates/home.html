@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Stock Search Engine</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body> 
+ 
+<div class="container">
+  <h2>Go Search</h2>
+  <div class="panel panel-default">
+    <div class="panel-body">
+        <form action="http://127.0.0.1:5000/input" method = "post">
+            <div class="form-group">
+              <label for="ticker">Stock ticker Name</label>
+              <input type="text" class="form-control" name = "Name">
+            <label class="checkbox-inline">
+                <input type="checkbox" value="POS" name="sentiment">Positive
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" value="NEG" name="sentiment">Negative
+            </label>
+            <div class='checkbox'>
+            <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+            </div>
+        </form>
+    </div>
+  </div>
+  <ul class="list-group">
+    {% for i,j in result %}
+      <li class="list-group-item"><a href={{j}}>{{ i }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+</body>
+</html>
